@@ -35,3 +35,24 @@ ul.list::after{
 .show{
     display: block;
 }
+
+ul.list2{
+    list-style-type: none;
+    margin: 0;
+    
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-button2{
+    display: block;
+    padding: 10px 20px 10px 20px;
+    float: left;
+    margin-right: -1px;
+    color: grey;
+    text-decoration: none;
+    cursor: pointer;
+}
+.tab-content2{
+    display: none;
+    padding: 10px;
+}
