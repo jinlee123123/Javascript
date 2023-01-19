@@ -4,52 +4,108 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link href="index.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="container mt-5">
-        <ul class="list">
-            <li class="tab-button ">Products</li>
-            <li class="tab-button ">Information</li>
-            <li class="tab-button">Shipping</li>
-        </ul>
-        <div class="tab-content ">
-            <h4>상품설명</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.</p>
-        </div>
-        <div class="tab-content ">
-            <h4>스펙설명</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.</p>
-        </div>
-        <div class="tab-content ">
-            <h4>배송설명</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.</p>
+    <div class="container2">
+        <div class="login-box">
+            <form action="">
+                <div>로그인창임</div>
+                <input type="text" id="email">
+                <input type="password" name="" id="psw">
+                <button type="submit" id="submit">전송</button>
+                <button id="close">닫기</button>
+            </form>
         </div>
     </div>
-    <div class="container mt-5">
-        <ul class="list2">
-            <li class="tab-button2" data-id="0">Products</li>
-            <li class="tab-button2" data-id="1">Information</li>
-            <li class="tab-button2" data-id="2">Shipping</li>
-        </ul>
-        <div class="tab-content2" data-id="0">
-            <h4>상품설명</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.</p>
-        </div>
-        <div class="tab-content2" data-id="1">
-            <h4>스펙설명</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.</p>
-        </div>
-        <div class="tab-content2" data-id="2">
-            <h4>배송설명</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.</p>
-        </div>
-    </div>
+    <h1 id="hello">안녕하세요</h1>
+    <button onclick="but1('hihihihi')">버튼1</button>
+    <div class="alert-box" id="alert">알림창1</div>
+    <button onclick="alertOn()">버튼</button>
+    <button id="change-text">버튼2</button>
 
-    <script   src="https://code.jquery.com/jquery-3.6.1.min.js"   integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="   crossorigin="anonymous"></script>
-    <script src="tap.js"></script>
+    <button id="btn3">버튼3</button>
+    <div class="container">
+        <div></div>
+    </div>
+    <div class="text3">바보</div>
+    <button class="login">로그인버튼</button>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script>
+        // document.getElementById('hello').innerHTML ='안녕';
+        // document.getElementById('hello').style.color = 'red';
+        // document.getElementById('hello').style.fontSize = '12px';
+        
+        var num = 0
+
+        function alertOn(){
+            if ( num == 0){
+            document.getElementById('alert').style.display ='none';
+                num ++;
+            } else if(num == 1){
+                document.getElementById('alert').style.display ='block';
+                num --;
+            }
+        };
+
+        function but1(text){
+            document.getElementById('hello').innerHTML = text;
+        }
+        //class 찾을때는 항상 인덱싱해줘야함
+        // document.getElementsByClassName('alert-box')[0].innerHTML = '바뀐알림창';
+        
+        document.getElementById('change-text').addEventListener('click',function(){
+            document.getElementsByClassName('alert-box')[0].innerHTML = '바뀐알림창';
+        })
+
+        document.getElementById('btn3').addEventListener('click', function(){
+            // document.getElementsByClassName('container')[0].classList.add('show');
+            document.getElementsByClassName('container')[0].classList.toggle('show');
+        })
+
+        //document.querySelector('.list-group') document.querySelector('#test1') querySelectorAll
+    
+        $('.text3').html('멍청이');
+        $('.text3').css('color', 'red');
+        $('.text3').addClass('show');
+        //$는 SellectAll과 같음
+        $('#btn3').on('click', function(){
+            // $('.container').fadeOut hide 
+        })
+        $('.login').on('click',()=>{
+            $('.container2').addClass('show-modal');
+        })
+
+        $('#close').on('click',()=>{
+            $('.container2').addClass('show');
+        })
+        // document.getElementById('email').value
+
+        $('form').on('submit',(e)=>{
+
+
+        var 입력한값 = document.getElementById('email').value;
+        if ( /\S+@\S+\.\S+/.test(입력한값)==false ){
+            alert('이메일형식아님')
+            e.preventDefault();
+        }
+
+
+            // if( $('#email').val() ==''){
+            //     e.preventDefault();
+            //     alert('아이디창 비어있음');
+            // }else if ( document.getElementById('psw').value == ''){
+            //     alert('비번입력좀');
+            //     e.preventDefault();
+            // }else if (document.getElementById('psw').value.length < 6){
+            //     alert('비번이 짧음');
+            //     e.preventDefault;
+            // }
+        });
+        
+    </script>
 </body>
 </html>

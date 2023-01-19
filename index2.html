@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <h4 class="nav-brand">GoodJoB</h4>
+        <span>진척도</span>
+        <p class="scrollcount"></p>
+
+        <div class="progressbar">
+            <div class="progress"></div>
+        </div>
+    </nav>
+
+
+
+    <div class="alert alert-danger">
+        <span id="num">5</span>초이내 구매시 사은품 증정!
+    </div>
+
+    <div style="overflow: hidden;">
+        <div class="carousel">
+            <div class="slide-box">
+                <img src="/img/car1.png" alt="" draggable="false">
+            </div>
+            <div class="slide-box">
+                <img src="/img/car2.png" alt="" draggable="false">
+            </div>
+            <div class="slide-box">
+                <img src="/img/car3.png" alt="" draggable="false">
+            </div>
+        </div>
+    </div>
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="left">&lt;</button>
+    <button class="right">&gt;</button>
+
+    
+
+    <div class="lorem">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat aliquam, labore dolorum commodi vitae alias dicta totam ut pariatur, quaerat, illum iure suscipit minima numquam rem earum odit odio quidem.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde distinctio explicabo saepe sed reiciendis ullam hic, officiis impedit quas debitis natus eius obcaecati deserunt inventore, numquam nesciunt dicta, harum ratione?</p>
+    </div>
+    
+
+    <div class="container mt-5">
+        <ul class="list">
+            <li class="tab-button" data-id="0">Products</li>
+            <li class="tab-button orange" data-id="1">Information</li>
+            <li class="tab-button" data-id="2">Shipping</li>
+        </ul>
+        <div class="tab-content">
+            <p>상품설명입니다. Product</p>
+        </div>
+        <div class="tab-content show">
+            <p>스펙설명입니다. Information</p>
+        </div>
+        <div class="tab-content">
+            <p>배송정보입니다. Shipping</p>
+        </div>
+    </div> 
+
+    <div class="redbox">
+        <div class="greenbox"></div>
+        <p class="hello">hello</p>
+    </div>
+    
+
+    <script>
+
+    
+
+        setTimeout(()=>{
+            $('.alert').fadeOut();
+        },5000)
+
+        var num = 5;
+
+        setInterval(timeOut,1000)
+
+        
+
+        function timeOut(){
+            num--;
+            if(num>=0){
+                $('#num').html(num);
+            }
+        };
+        
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+        setTimeout(()=>{
+                $('.alert').fadeOut();
+            },5000)
+
+            var num = 5;
+
+        setInterval(timeOut,1000)
+
+        
+
+        function timeOut(){
+            num--;
+            if(num>=0){
+                $('#num').html(num);
+            }
+        };
+
+        var num2 = 1 ;
+
+        $('.slide-1').on('click',()=>{
+            $('.carousel').css('transform','translateX(0vw)');
+            num2 = 1;
+        })
+        $('.slide-2').on('click',()=>{
+            $('.carousel').css('transform','translateX(-100vw)');
+            num2 = 2;
+        })
+        $('.slide-3').on('click',()=>{
+            $('.carousel').css('transform','translateX(-200vw)');
+            num2 = 3;
+        })
+        $('.right').on('click',()=>{
+            if(num2<3){
+            $('.carousel').css('transform','translateX(-'+num2 +'00vw)');
+            num2+=1;
+            }
+
+        });
+        $('.left').on('click',()=>{
+            if(num2>1){
+            $('.carousel').css('transform','translateX(-'+ (num2-2) +'00vw)');
+            num2-=1;
+            }
+            
+        });
+
+        function vat(a){
+           var num = (a *0.1).toFixed(2);
+           // 2째자리까지 반올림해주세요 toFixed로 하면 문자로 변환됨 => parsInt해줘야함
+            return parseFloat(num)
+        }
+        console.log(vat(5000));
+
+
+
+
+        // window.addEventListener('scroll',()=>{
+        //     window.scrollBy(0,100);
+        // })
+    
+
+        $(window).on('scroll',()=>{
+            if(window.scrollY>300){
+            $('.nav-brand').css('font-size', '30px');
+        }else{
+            $('.nav-brand').css('font-size', '20px');
+        }
+        });
+
+        $('.lorem').on('scroll', function(){
+  var 스크롤양 = $('.lorem').scrollTop();
+  var 실제높이 = document.querySelector('lorem').scrollHeight;
+  var 높이 = document.querySelector('.lorem').clientHeight;
+  if (스크롤양 + 높이 > 실제높이 - 10) {
+    alert('다읽음')
+  }
+});
+
+    $(window).on('scroll',()=>{
+        var 전체높이 = document.querySelector('html').scrollHeight;
+        var 스크롤양 = window.scrollY
+
+        var 진척도 = 전체높이-스크롤양;   
+        var 진척도퍼 = (3000-진척도)/17.47
+        $('.scrollcount').html(`${진척도퍼}`);
+        $('.progress').css('width',`${진척도퍼}%`);
+
+        
+    })
+
+    // $('.tab-button').eq(0).on('click',()=>{
+    //     $('.tab-button').removeClass('orange');
+    //     $('.tab-button').eq(0).addClass('orange');
+    //     $('.tab-content').removeClass('show');
+    //     $('.tab-content').eq(0).addClass('show');
+    //     })
+    // $('.tab-button').eq(1).on('click',()=>{
+    //     $('.tab-button').removeClass('orange');
+    //     $('.tab-button').eq(1).addClass('orange');
+    //     $('.tab-content').removeClass('show');
+    //     $('.tab-content').eq(1).addClass('show');
+    // })
+    // $('.tab-button').eq(2).on('click',()=>{
+    //     $('.tab-button').removeClass('orange');
+    //     $('.tab-button').eq(2).addClass('orange');
+    //     $('.tab-content').removeClass('show');
+    //     $('.tab-content').eq(2).addClass('show');
+    // })
+    //반복문은 var이 아니라 let으로하셈 =>  var롤 할 경우 범위가 함수라 for 바깥에생성된다.
+    //let은 범위가 {}라 for문안에 생성됨
+
+    // for(let i = 0; i < $('.tab-button').length; i++){
+    //     $('.tab-button').eq(i).on('click',()=>{
+    //         $('.tab-button').removeClass('orange');
+    //         $('.tab-button').eq(i).addClass('orange');
+    //         $('.tab-content').removeClass('show');
+    //         $('.tab-content').eq(i).addClass('show'); 
+    //     });
+    // };
+
+//$('.tab-button').length와같이 항상 확장성있는 코드로 짤수있게 생각해보기!
+
+
+
+
+    $('.redbox').on('click',function(e){
+        if ( e.target == document.querySelector('.redbox') ) {
+            alert('sadas');
+        }
+    })
+
+    function 탭열기(i){
+        $('.tab-button').removeClass('orange');
+        $('.tab-button').eq(i).addClass('orange');
+        $('.tab-content').removeClass('show');
+        $('.tab-content').eq(i).addClass('show'); 
+    }
+
+    $('.list').click((e)=>{
+        탭열기(e.target.dataset.id);
+    })
+    
+    var car2 = { name : '소나타' , price : [5000,4000] }
+    
+    $('.hello').html(car2.price[1]);
+
+
+
+    //초록박스 클릭해도 알람안뜸 e.target 현재 유저가 클릭한 값
+    //e.currentTarget = this  지금이벤트리스너가 달린곳
+
+    </script>
+    <script>
+
+    //캐러셀 스와이프기능만들기 1.img파일들 draggable =>false로 바꿔줘야함 style x src옆에작성
+    
+    var 시작좌표 = 0 ;
+    var mouseClick = false;
+    var carouselNum = 0;
+    
+    
+        $('.slide-box').eq(0).on('mousedown',(e)=>{
+        //mousemove, mouseup, mousedown
+        시작좌표=e.clientX;
+        //마우스 찍었을 떄 좌표 알러줌
+        mouseClick = true;
+        });
+        var 움직인좌표 = 0;
+        $('.slide-box').eq(0).on('mousemove',(e)=>{
+            움직인좌표 = e.clientX-시작좌표;
+            // console.log(움직인좌표);
+            if(mouseClick == true){
+                $('.carousel').css('transform',`translateX(${움직인좌표}px)`)
+            }
+
+        })
+        $('.slide-box').eq(0).on('mouseup',(e)=>{
+                mouseClick = false;
+                if(움직인좌표 <-400){
+                    $('.carousel')
+                    .css('transition','all 0.5s')
+                    .css('transform','translateX(-100vw)');
+                    
+                }else{
+                    $('.carousel').css('transform','translateX(0vw)')
+                }
+            })
+        $('.carousel').css('transition','none');
+
+    
+        $('.slide-box').eq(1).on('mousedown',(e)=>{
+        //mousemove, mouseup, mousedown
+        시작좌표=e.clientX;
+        //마우스 찍었을 떄 좌표 알러줌
+        mouseClick = true;
+        });
+        var 움직인좌표 = 0;
+        $('.slide-box').eq(1).on('mousemove',(e)=>{
+            움직인좌표 = e.clientX-시작좌표;
+            console.log(움직인좌표);
+            if(mouseClick == true){
+                $('.carousel')
+                .css('transform',`translateX(-100vw)`)
+                .css('transform',`translateX(${움직인좌표})px)`)
+            }
+        })
+        $('.slide-box').eq(1).on('mouseup',(e)=>{
+                mouseClick = false;
+                if(움직인좌표 <-400){
+                    $('.carousel')
+                    .css('transition','all 0.5s')
+                    .css('transform','translateX(-200vw)');
+                    carouselNum++;
+                }
+                else if(움직인좌표 >400){
+                    $('.carousel')
+                    .css('transition','all 0.5s')
+                    .css('transform','translateX(0vw)');
+                }
+            })
+        $('.carousel').css('transition','none');
+        $('.slide-box').eq(2).on('mousedown',(e)=>{
+            //mousemove, mouseup, mousedown
+            시작좌표=e.clientX;
+            //마우스 찍었을 떄 좌표 알러줌
+            mouseClick = true;
+            });
+            var 움직인좌표 = 0;
+        $('.slide-box').eq(2).on('mousemove',(e)=>{
+            움직인좌표 = e.clientX-시작좌표;
+
+            if(mouseClick == true){
+                $('.carousel').css('transform',`translateX(${3000+움직인좌표})px)`)
+            }
+
+        })
+        $('.slide-box').eq(2).on('mouseup',(e)=>{
+                mouseClick = false;
+                if(움직인좌표 >400){
+                    $('.carousel')
+                    .css('transition','all 0.5s')
+                    .css('transform','translateX(-100vw)');
+                    $('.carousel').css('transition','none');
+                }
+            })
+    
+        
+
+        
+
+    </script>
+
+</body>
+</html>

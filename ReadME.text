@@ -1,0 +1,39 @@
+index2
+캐러셀/ 캐러셀 스와이프
+모바일에서는 mouse가아닌 touch로 이벤트리스너
+
+
+index3내용
+1.Object자료형 데이터 바인딩
+2.select input다루기
+=>e.target/this/e.currentTarget
+3.$('#test').append(template1); html생성법
+4.forEach 반복문
+
+for(var key in obj){
+    console.log(key); =>name, age 
+    결과값은 obj[key]=> kim ,20 출력
+}
+
+ajax 새로고침없이 GET,Post요청하는 기능
+
+5.sort, filter, map함수  
+
+Dom document object model
+자바스크립트가 html에대한 정보들을 Object자료형으로 정리한것.
+
+셀렉터로찾은이미지.addEventListener('load', function(){
+  //이미지 로드되면 실행할 코드 
+})
+한국인들은 답답해서 load쓰고 실행하면 속터짐 알고만있기
+5.장바구니만들기
+Local Storage 사용 사이트껏다켜도 저장됨 session Storage는 없어짐 
+localStorage.setItem(데이터이름,값)
+cookies 로그인정보 저장할때
+중복검사 로직
+
+6.sibling찾는법 알기
+
+index4내용
+
+1.scroll apple music UI따라하기

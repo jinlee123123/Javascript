@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main3.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card-group container">
+        <div class="card">
+            <img src="https://via.placeholder.com/600">
+            <div class="card-body">
+                <h5>Card title</h5>
+                <p>가격 : 70000</p>
+                <button class="btn btn-danger">주문하기</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/600">
+            <div class="card-body">
+                <h5>Card title</h5>
+                <p>가격 : 70000</p>
+                <button class="btn btn-danger">주문하기</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/600">
+            <div class="card-body">
+                <h5>Card title</h5>
+                <p>가격 : 70000</p>
+                <button class="btn btn-danger">주문하기</button>
+            </div>
+        </div>
+    </div>
+    <form class="container my-5 form-group">
+        <p>상품선택</p>
+        <select class="form-select mt-2">
+            <option value="모자">모자</option>
+            <option value="셔츠">셔츠</option>
+            <option value="바지">바지</option>
+        </select>
+        <select class="form-select mt-2" style="display: none;">
+            <option>95</option>
+            <option>100</option>
+            <option>105</option>
+        </select>
+    </form>
+    
+
+    <div id="test">
+
+    </div>
+
+    <p>이름찾기</p>
+    <form action="">
+        <input type="text" id="name">
+        <button id="search" type="submit">찾기</button>
+    </form>
+    
+
+    <div class="card-group container list2">
+    </div>
+    <button class="btn btn-danger" id="more">더보기</button>
+    <button class="btn btn-danger" id="sort">가격순정렬</button>
+    <button class="btn btn-danger" id="sort2">5만원 이하가격</button>
+    <button class="btn btn-danger" id="sort3">다나가순 정렬</button>
+
+    <div class="storage">
+        <h3>장바구니</h3>
+        <div class="storage-list">
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+
+        $
+
+
+        var products = [
+            { id : 0, price : 70000, title : 'Blossom Dress' },
+            { id : 1, price : 50000, title : 'Springfield Shirt' },
+            { id : 2, price : 60000, title : 'Black Monastery' }
+        ];
+
+
+
+
+        for(let i =0; i<$('.card-body').length ;i++){
+        $('.card-body h5').eq(i).html(products[i].title)
+        $('.card-body p').eq(i).html(`가격은 말이죠 ${products[i].price}`)
+        }
+
+
+        // $('.form-select').eq(0).on('input', ()=>{
+        //     if($('.form-select').eq(0).val()=='셔츠'){
+        //         $('.form-select').eq(1).css('display','block');
+        //     }else if($('.form-select').eq(0).val()=='모자'){
+        //         $('.form-select').eq(1).css('display','none');}
+        // })
+
+        // $('.form-select').eq(0).on('input', (e)=>{
+        //     if(e.currentTarget.value =='셔츠'){
+        //         $('.form-select').eq(1).css('display','block');
+        //     }else if(e.currentTarget.value =='모자'){
+        //         $('.form-select').eq(1).css('display','none');}
+        // })
+
+            var pants =[29,30,31];
+
+        $('.form-select').eq(0).on('input', function(){
+            if(this.value=='셔츠'){
+                $('.form-select').eq(1).css('display','block');
+            }else if(this.value =='모자'){
+                $('.form-select').eq(1).css('display','none');
+            }else if(this.value =='바지'){
+                $('.form-select').eq(1).html('');
+                $('.form-select').eq(1).css('display','block');
+                // var template2 =`<option>28<option>
+                //                 <option>29<option>
+                //                 <option>30<option>`
+                    pants.forEach(function(a){
+                    $('.form-select').eq(1).append(`<option>${a}</option>`);    
+                    }
+        )}
+        })
+        //this 쓸때에는 콜백함수 x 바깥에있는 this값을 가져오기때문에
+
+
+        var template1 = '<p>hi</p>';
+        $('#test').append(template1);
+        
+        var 출석부 = ['이진','철수']
+
+        $('form').on('submit',()=>{
+            var 입력값 = document.getElementById('name').value;
+            이름찾기(입력값) 
+        })
+
+
+        function 이름찾기(이름){
+            var count = 0;
+            for(let i = 0; i< 출석부.length; i++){
+                if(이름 == 출석부[i]){
+                    alert('있음');
+                    count++;
+                }
+            }
+            if(count==0){
+                alert('없음');
+            }
+        }
+        //indexOf find 쓰면되긴함 
+
+
+
+        
+
+        products.forEach((a,i)=>{
+            var cardlist = `<div class="card">
+                            <img src="https://via.placeholder.com/600">
+                            <div class="card-body">
+                                <h5>${a.title}</h5>
+                                <p>가격 :${a.price}</p>
+                                <button class="buy">구매</button>
+                                <button class="btn btn-danger">주문하기</button>
+                            </div>
+                        </div>`;
+            $('.list2').append(cardlist);
+        })
+        
+        var num =1;
+
+        $('#more').click(()=>{
+            $.get(`https://codingapple1.github.io/js/more${num}.json`)
+            .done((data)=>{
+
+                data.forEach((a,i)=>{
+                    var cardlist = `<div class="card">
+                                    <img src="https://via.placeholder.com/600">
+                                    <div class="card-body">
+                                        <h5>${a.title}</h5>
+                                        <p>가격 :${a.price}</p>
+                                        <button class="btn btn-danger">주문하기</button>
+                                    </div>
+                                </div>`;
+                    $('.list2').append(cardlist);
+                })
+            num++;
+
+            })
+        })
+
+        $('#sort').click(()=>{
+            products.sort((a,b)=>{
+                return a.price - b.price
+            });
+            $('.list2').html('');
+            products.forEach((a,i)=>{
+                    var cardlist = `<div class="card">
+                                    <img src="https://via.placeholder.com/600">
+                                    <div class="card-body">
+                                        <h5>${a.title}</h5>
+                                        <p>가격 :${a.price}</p>
+                                        <button class="btn btn-danger">주문하기</button>
+                                    </div>
+                                </div>`;
+                    $('.list2').append(cardlist);
+                })
+        })
+        $('#sort2').click(()=>{
+            
+            
+            var newproducts =products.filter((a)=>
+                a.price<60000); //return생략가능
+                $('.list2').html('');
+
+            newproducts.forEach((a,i)=>{
+                    var cardlist = `<div class="card">
+                                    <img src="https://via.placeholder.com/600">
+                                    <div class="card-body">
+                                        <h5>${a.title}</h5>
+                                        <p>가격 :${a.price}</p>
+                                        <button class="btn btn-danger">주문하기</button>
+                                    </div>
+                                </div>`;
+                    $('.list2').append(cardlist);
+                })
+            });
+        $('#sort3').click(()=>{
+            products.sort((a,b)=>{
+                if(a.title<b.title){
+                    return 1
+                }else{
+                    return -1
+                }
+                //양수면 오른쪽으로 보내고 음수면 왼쪽으로보내는 알고리즘 
+            })
+            $('.list2').html('');
+            products.forEach((a,i)=>{
+                    var cardlist = `<div class="card">
+                                    <img src="https://via.placeholder.com/600">
+                                    <div class="card-body">
+                                        <h5>${a.title}</h5>
+                                        <p>가격 :${a.price}</p>
+                                        <button class="btn btn-danger">주문하기</button>
+                                    </div>
+                                </div>`;
+                    $('.list2').append(cardlist);
+                })
+        });
+
+        //filter 신 문법 새로운 변수선언해주기떄문에 자료변형없이 가져와준다. 
+        var array = [3,4,6];
+        var newarray = array.filter((a)=>{
+            return a<4
+        })
+
+        //map함수 var 새어레이 = 어레이.map(funtion(a){ return a*4 } 자료값 변)
+        
+
+        //장바구니 만들기
+        //버튼 클릭 => a.title 저장 보여주는 div
+        $('.buy').click((e)=>{
+            var 상품 = $(e.target).siblings('h5').text();
+
+            if( localStorage.getItem('cart') != null){
+                var 꺼낸것 = JSON.parse(localStorage.getItem('cart'));
+                //꺼낸것 => oject 형식 기존에 새로 e.target누른것을 추가
+                    if( 꺼낸것 != 상품){
+                        var overlap = 0;
+                        for(let i=0; i<꺼낸것.length; i++){
+                            if(꺼낸것[i]==상품){
+                                overlap++;
+                            }
+                        }
+                        if(overlap == 0){
+                            꺼낸것.push(상품);
+                            localStorage.setItem('cart',JSON.stringify(꺼낸것));
+                        }else{
+                            alert('이미 장바구니에 있습니다.');
+                        }
+                        //중복검사 로직 내가짠거라 결과만 맞을수도있음
+                }
+                
+            }else{
+                localStorage.setItem('cart',JSON.stringify([상품]));
+            }
+            var 꺼낸것 =JSON.parse(localStorage.getItem('cart'));
+            $('.storage-list').html('');
+            for(let i=0; i < 꺼낸것.length; i++){
+                $('.storage-list').append(`<h4>${꺼낸것[i]}</h4>`);
+            }
+
+        })
+
+    </script>
+
+</body>
+</html>

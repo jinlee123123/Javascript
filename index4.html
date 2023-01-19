@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main4.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="card-background">
+        <div class="card-box">
+          <img src="/img/img1.png">
+        </div>
+        <div class="card-box">
+          <img src="/img/img2.png">
+        </div>
+        <div class="card-box">
+          <img src="img/img3.png">
+        </div>
+      </div>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script>
+      $(window).scroll(()=>{
+        var height = $(window).scrollTop();//스크롤 높이를 알아보자
+        console.log(height)
+
+
+        var y =-1/545*height+2.139
+        var y2=-1/10500*height+1.06
+
+        var y3 =-0.9/543*height+3.329
+    
+        
+
+        $('.card-box').eq(0).css('opacity',y);
+        $('.card-box').eq(0).css('transform',`scale(${y2})`)
+        $('.card-box').eq(1).css('opacity',y3);
+        
+
+      })
+    </script>
+</body>
+</html>

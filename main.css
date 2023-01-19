@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.alert-box{
+    background-color: skyblue;
+    padding: 20px;
+    color: white;
+    border-radius: 5px;
+    display: block;
+}
+.container{
+    background-color: black;
+    width: 400px;
+    height: 200px;
+    border: solid 2px #eee;
+}
+
+.show{
+    display: none;
+}
+
+.container2{
+    position: fixed;
+    margin: auto;
+    z-index: 5;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    height: 100%;
+    text-align: center;
+    transition: all 1s;
+    visibility: hidden;
+}
+.show-modal{
+    visibility: visible;
+    opacity: 1;
+}
+.login-box{
+    margin: auto;
+    width: 60%;
+    height: 200px;
+    background-color: white;
+}
+
